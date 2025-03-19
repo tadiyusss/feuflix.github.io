@@ -64,7 +64,9 @@
                 <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">
                     <a href="members.html">Members</a>
                 </li>
-                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">Contributions</li>
+                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">
+                    <a href="contributions.html">Contributions</a>
+                </li>
                 <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">
                     <a href="about.html">About</a>
                 </li>
@@ -253,13 +255,13 @@
             <div class="px-4 max-h-dvh mx-auto max-w-5xl md:mt-10 mt-8" @click.away="show_rpw = false" x-data="{
                 tab: 'a-pre-reading'
             }">
-                <div class="grid md:grid-cols-6 grid-cols-3 gap-2 text-white font-medium text-sm max-w-4xl">
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'a-pre-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'a-pre-reading' }">A. Pre-Reading</div>
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'b-pre-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'b-pre-reading' }">B. Pre-Reading</div>
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'a-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'a-reading' }">A. Reading</div>
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'b-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'b-reading' }">B. Reading</div>
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'c-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'c-reading' }">C. Reading</div>
-                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'post-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'post-reading' }">Post-Reading</div>
+                <div class="grid md:grid-cols-6 grid-cols-3 gap-2 text-white font-medium text-sm max-w-4xl bg-gradient-to-r from-red-800 to-transparent py-4 px-2 rounded-lg">
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'a-pre-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'a-pre-reading' }">A. Pre-Reading</div>
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'b-pre-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'b-pre-reading' }">B. Pre-Reading</div>
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'a-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'a-reading' }">A. Reading</div>
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'b-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'b-reading' }">B. Reading</div>
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'c-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'c-reading' }">C. Reading</div>
+                    <div class="cursor-pointer text-center px-2 py-1" @click="tab = 'post-reading'" :class="{ 'bg-red-600 px-2 py-1 rounded-lg ease duration-200': tab === 'post-reading' }">Post-Reading</div>
 
 
 
