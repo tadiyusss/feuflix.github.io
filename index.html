@@ -42,7 +42,8 @@
                 this.rpw_data = data;
                 console.log(this.rpw_data);
             });
-        }
+        },
+        show_reflection: false
      }">
         <!-- Navigation Bar -->
         <nav class="w-full p-4 md:flex block items-center justify-between" x-data="{
@@ -64,8 +65,12 @@
                     <a href="members.html">Members</a>
                 </li>
                 <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">Contributions</li>
-                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">Project</li>
-                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">About</li>
+                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">
+                    <a href="project-about.html">Project</a>
+                </li>
+                <li class="md:w-auto w-full md:border-0 md:my-0 my-2 md:p-0 p-2 rounded cursor-pointer md:hover:bg-transparent hover:bg-red-800">
+                    <a href="project-about.html">About</a>
+                </li>
             </ul>
         </nav>
 
@@ -92,7 +97,7 @@
                     <img src="assets/thumbnails/rrf.png" class="w-full md:h-auto rounded-md shadow-xl shadow-red-500/50 ring ring-red-500/30" alt="">
                     <h4 class="text-center mt-8 text-2xl font-medium">RRF</h4>
                 </div>
-                <div class="col-span-1 p-2" @click="show_rrf = true; rrf_data = {summary: 'Terry Brown’s article \'Are We Too Dependent on Technology?\' discusses how increasing reliance on technology affects modern society. Brown argues that while technology improves convenience and efficiency, it weakens problem-solving and critical thinking skills. The rise of smartphones, artificial intelligence, and automation has made people more comfortable communicating online rather than in person. This shift reduces face-to-face interaction, impacting social skills and relationships. Brown also highlights privacy risks, as individuals share large amounts of personal data online, increasing the chances of security breaches. Despite these concerns, the article acknowledges technology’s benefits, such as faster communication, improved access to information, and innovation in various fields. The core argument is that people must balance responsible technology use and over-dependence. Logical reasoning and real-world examples support this claim. Brown urges readers to reflect on their own habits and adopt a more cautious approach to technology. The article presents a well-reasoned perspective on the need for mindful usage of digital tools.', response: 'I agree with Terry Brown’s argument that while technology is beneficial, excessive dependence has negative effects. Brown presents strong logical arguments, using realistic examples to support the claim. One key point is that automation and AI reduce the need for problem-solving, making people less capable of thinking critically. The article also effectively explains how reliance on digital communication weakens face-to-face interactions. Privacy concerns are another valid issue, as more personal data is shared online, increasing security risks. However, Brown fairly acknowledges the advantages of technology, ensuring a balanced discussion. The writing is clear, well-structured, and objective, making it easy for readers to engage with the argument. Although the article could have explored solutions for responsible technology use in more depth, it successfully raises awareness about the issue. It encourages readers to reflect on their own habits and consider the long-term effects of their reliance on technology. Overall, Brown’s article is persuasive and thought-provoking.'}">
+                <div class="col-span-1 p-2" @click="show_reflection = true">
                     <img src="assets/thumbnails/reflection.png" class="w-full md:h-auto rounded-md shadow-xl shadow-red-500/50 ring ring-red-500/30" alt="">
                     <h4 class="text-center mt-8 text-2xl font-medium">Reflection</h4>
                 </div>
@@ -165,6 +170,67 @@
                 <img src="assets/members/wong/filler-2-landscape.JPG" @click="open = true; movie_details = { title: 'Sweet Home', description: 'Hyun, a loner high school student who lost his entire family in a terrible accident, is forced to leave his home and has to face a new reality where monsters are trying to wipe out all of humanity. Now he must fight against all odds to try and race against the clock to save what is left of the human race before it\'s too late.', cast: ['Song Kang', 'Lee Jin-wook', 'Lee Si-young'], image_url: 'assets/members/wong/filler-2-landscape.JPG' }" class="rounded min-w-96 max-h-48 object-cover rounded cursor-pointer">
             </div>
         </section>
+
+
+        <div x-show="show_reflection"  @keydown.escape.window="show_reflection = false" class="ease duration-200 fixed inset-0 bg-black bg-opacity-50">
+            <div class="px-4 max-h-dvh mx-auto max-w-4xl py-2 md:flex block space-x-4" @click.away="show_reflection = false" x-data="{
+                tab: 'Organized'
+            }">
+                <ul class="text-white font-medium text-xl md:min-w-40 md:mt-4 md:block flex items-center space-x-4">
+                    <li class="cursor-pointer text-center mb-4" @click="tab = 'Organized'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === 'Organized' }">Organized</li>
+                    <li class="cursor-pointer text-center mb-4" @click="tab = '5-Paragraph'" :class="{ 'bg-red-600 px-2 py-1 rounded ease duration-200': tab === '5-Paragraph' }">5-Paragraph</li>
+                </ul>
+                <div class="bg-red-800 text-white rounded shadow-lg max-w-4xl mt-4 ring ring-red-500/40 shadow-lg shadow-red-700 max-h-dvh overflow-y-auto md:pb-0 pb-24 md:mb-4 mb-24">
+                    <template x-if="tab === 'Organized'">
+                        <div>
+                            <h5 class="text-xl font-medium bg-red-900 px-6 py-4">What does it mean to be a reader?</h5>
+                            <div class="mt-4 px-6">
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To pick up a book and turn the pages, eyes glancing over every line written down. Whether it be stories of fantasy and magic, or documents of studies and thesis to learn, reading has always been a life skill every person needs regardless if it’s a hobby or a requirement.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, each and every person approaches reading differently. Some are avid bookworms, always borrowing novels from the library and visiting it frequently, while some fall asleep at the first page. Personally, I, Samantha De Lara, can relate to the latter when it comes to history books and Filipino literature. </p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I’d consider myself to be a great reader. I adore noticing the little details in stories, watching the characters grow from humble beginnings and into wonderful heroes, and the like. If I was given a poem to analyze, I’d begin waxing poetic as well in order to figure out what the author means with their work. In short, I have a love for this hobby… Well, most of the time. I do not like reading technical books much. It’s like melatonin for me.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In similar regards, Eirene Lituco shares the same dilemma as me. She has stated that her attention span was low, and she’d often lose focus and get distracted when reading blocks of text.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a person who was more interested in visual media such as comics and shows, the only books that she has picked up and read all the way were stories that had pictures in them such as “Diary of a Wimpy Kid” and “Dork Diaries”. A helpful method that she’s found for herself was annotating, as it’d let her be more involved and personal with the book, which in turn captured her attention more.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As for Benedict Paule, he was a reader from a young age as well. He was fond of novels where magic and fantastic adventures were involved, such as “Harry Potter and the Sorcerer’s Stone” and “Narnia”, and finds this activity as a source of leisure. Even if he finds it difficult to find the time to actually sit down and pick up a book, due to his busy schedule, he always aims to continue this hobby regardless.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jenny Wong has said that the importance of reading to her was great, as it was a valuable skill that would be needed all throughout our entire lives. However, she finds it her weakness in understanding more complex works of literature, needing her to deeply analyze a poem and seeing the metaphors through fanciful sentences. Even then, to help her through it, she’d often take notes and annotate as well, similar to Lituco, whenever she read.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another method she used was pre-reading strategies such as activating prior knowledge about a certain topic, and relating it as well to her own experiences. If she were to read a poem, Wong would then recall past memories that are similar to the ones written down amongst the pages, in order to understand it better. </p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stephen Tigno was much of the same, as he said that throughout the majority of his junior highschool life and until now, annotating has always been something that he’s been relying on whenever he reads. He’d make down key points, summarize paragraphs, and write in the margins of whatever he understands so he can look back on it later.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;He’d also frequently skim the text and break large blocks of paragraphs into smaller, easier-to-digest sentences so that it wouldn’t be too heavy to read, a technique he used whenever there were complex topics to learn. Another thing that Tigno would do is that he’d practice active recall whenever he finished reading, trying to remember what the author’s argument was and summarizing it again in his head to make sure he understands the work.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jargon and deep topics had also troubled Ashley Flora as well, as she has stated that she’d often struggle with vocabulary and words that she came across that she couldn’t understand. As such, whenever she found a specialized word that she didn’t know, she’d look it up on the internet and find out the meaning every time that it happened.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another issue was that she’d struggle to read in front of other people, as she would stutter and jumble up her sentences due to her nervousness.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to help her with this, she employed similar reading strategies such as how Tigno and Wong did; scanning keywords which would help her understand the content before fully diving into it, and annotating sentences so that she could comprehend it more clearly.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annotation has been said numerous times again and again when it comes to reading strategies from our group members, and I admit, it is a largely helpful technique to have whenever something complex that needs to be learned is needed. I enjoy highlighting texts more though with colorful pastels, making it stand out from the white paper and easier to recall when I do need it.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There are many different types of readers I have found, after reading through all the group member’s experience with this activity.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Whether they be bookworms who loved to keep their nose into a novel such as myself and Paul; studious people that seeked out this skill in order to learn more, such as Wong and Tigno; or even those who weren’t the biggest fans of reading in general, but strove to improve themselves regardless of the fact, like Lituco and Flora, all of us has benefitted from reading in our lives.</p>
+                                <p class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is what makes us as readers.</p>
+                            </div>
+                        </div>
+                    </template>
+                    <template x-if="tab === '5-Paragraph'">
+                        <div>
+                            <h5 class="text-xl font-medium bg-red-900 px-6 py-4">What does it mean to be a reader?</h5>
+                            <div class="mt-4 px-6">
+                                <p class="mb-4">
+                                    To pick up a book and turn the pages, eyes glancing over every line written down. Whether it be stories of fantasy and magic, or documents of studies and thesis to learn, reading has always been a life skill every person needs regardless if it’s a hobby or a requirement. However, each and every person approaches reading differently. Some are avid bookworms, always borrowing novels from the library and visiting it frequently, while some fall asleep at the first page. Personally, I, Samantha De Lara, can relate to the latter when it comes to history books and Filipino literature. I’d consider myself to be a great reader. I adore noticing the little details in stories, watching the characters grow from humble beginnings and into wonderful heroes, and the like. If I was given a poem to analyze, I’d begin waxing poetic as well in order to figure out what the author means with their work. In short, I have a love for this hobby… Well, most of the time. I do not like reading technical books much. It’s like melatonin for me. In similar regards, Eirene Lituco shares the same dilemma as me. She has stated that her attention span was low, and she’d often lose focus and get distracted when reading blocks of text. As a person who was more interested in visual media such as comics and shows, the only books that she has picked up and read all the way were stories that had pictures in them such as “Diary of a Wimpy Kid” and “Dork Diaries”. A helpful method that she’s found for herself was annotating, as it’d let her be more involved and personal with the book, which in turn captured her attention more. 
+                                </p>
+                                <p class="mb-4">
+                                    As for Benedict Paule, he was a reader from a young age as well. He was fond of novels where magic and fantastic adventures were involved, such as “Harry Potter and the Sorcerer’s Stone” and “Narnia”, and finds this activity as a source of leisure. Even if he finds it difficult to find the time to actually sit down and pick up a book, due to his busy schedule, he always aims to continue this hobby regardless. 
+                                </p>
+                                <p class="mb-4">
+                                    Jenny Wong has said that the importance of reading to her was great, as it was a valuable skill that would be needed all throughout our entire lives. However, she finds it her weakness in understanding more complex works of literature, needing her to deeply analyze a poem and seeing the metaphors through fanciful sentences. Even then, to help her through it, she’d often take notes and annotate as well, similar to Lituco, whenever she read. Another method she used was pre-reading strategies such as activating prior knowledge about a certain topic, and relating it as well to her own experiences. If she were to read a poem, Wong would then recall past memories that are similar to the ones written down amongst the pages, in order to understand it better. Stephen Tigno was much of the same, as he said that throughout the majority of his junior highschool life and until now, annotating has always been something that he’s been relying on whenever he reads. He’d make down key points, summarize paragraphs, and write in the margins of whatever he understands so he can look back on it later. He’d also frequently skim the text and break large blocks of paragraphs into smaller, easier-to-digest sentences so that it wouldn’t be too heavy to read, a technique he used whenever there were complex topics to learn. Another thing that Tigno would do is that he’d practice active recall whenever he finished reading, trying to remember what the author’s argument was and summarizing it again in his head to make sure he understands the work.
+                                </p>
+                                <p class="mb-4">
+                                    Jargon and deep topics had also troubled Ashley Flora as well, as she has stated that she’d often struggle with vocabulary and words that she came across that she couldn’t understand. As such, whenever she found a specialized word that she didn’t know, she’d look it up on the internet and find out the meaning every time that it happened. Another issue was that she’d struggle to read in front of other people, as she would stutter and jumble up her sentences due to her nervousness. In order to help her with this, she employed similar reading strategies such as how Tigno and Wong did; scanning keywords which would help her understand the content before fully diving into it, and annotating sentences so that she could comprehend it more clearly. 
+                                </p>
+                                <p class="mb-4">
+                                    Annotation has been said numerous times again and again when it comes to reading strategies from our group members, and I admit, it is a largely helpful technique to have whenever something complex that needs to be learned is needed. I enjoy highlighting texts more though with colorful pastels, making it stand out from the white paper and easier to recall when I do need it. There are many different types of readers I have found, after reading through all the group member’s experience with this activity. Whether they be bookworms who loved to keep their nose into a novel such as myself and Paul; studious people that seeked out this skill in order to learn more, such as Wong and Tigno; or even those who weren’t the biggest fans of reading in general, but strove to improve themselves regardless of the fact, like Lituco and Flora, all of us has benefitted from reading in our lives.
+                                </p>
+                                <p class="mb-4">This is what makes us as readers. </p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
 
         <div x-show="show_rrf"  @keydown.escape.window="show_rrf = false" class="ease duration-200 fixed inset-0 bg-black bg-opacity-50">
             <div class="px-4 max-h-dvh mx-auto max-w-4xl md:mt-24 mt-8" @click.away="show_rrf = false" x-data="{
